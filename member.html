@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Member Dashboard</title>
+  <link rel="stylesheet" href="css/member.css">
+</head>
+<body>
+
+<!-- Animated Background -->
+<div class="background-slider"></div>
+
+<header>
+  <h2 id="welcome"></h2>
+  <input
+    type="text"
+    id="search"
+    placeholder="Search books..."
+    onkeyup="searchBooks()"
+  >
+</header>
+
+<main id="book-list"></main>
+
+<button class="request-btn" onclick="openRequestPanel()">
+  Request Book
+</button>
+
+<!-- Overlay (IMPORTANT: must be BEFORE panel) -->
+<div id="overlay" onclick="closeRequestPanel()"></div>
+
+<!-- Slide Panel -->
+<div id="request-panel">
+  <button class="close-btn" onclick="closeRequestPanel()">×</button>
+
+  <h3>Book Request</h3>
+
+  <label for="bookSelect">Select Book</label>
+  <select id="bookSelect"></select>
+
+  <button onclick="submitRequest()">Submit</button>
+
+  <h4>Previous Requests</h4>
+  <ul id="requestHistory"></ul>
+</div>
+
+<!-- Scripts must be at the END -->
+<script src="js/data.js"></script>
+<script src="js/member.js"></script>
+
+</body>
+</html>
