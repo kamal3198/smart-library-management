@@ -1,0 +1,124 @@
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #f8fafc;
+}
+
+/* Animated background */
+.background-slider {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url("../assets/images/library1.jpg");
+  background-size: cover;
+  animation: slide 20s infinite;
+  z-index: -1;
+  opacity: 0.6;
+  filter: brightness(1.1) contrast(1.15);
+}
+
+@keyframes slide {
+  0% { background-image: url("../assets/images/library1.jpg"); }
+  50% { background-image: url("../assets/images/library2.jpg"); }
+  100% { background-image: url("../assets/images/library3.jpg"); }
+}
+
+header {
+  background: #1e3a8a;
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#search {
+  padding: 8px;
+  width: 250px;
+}
+
+#book-list {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+
+.request-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #22c55e;
+  color: white;
+  padding: 14px 20px;
+  border-radius: 40px;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.request-btn:hover {
+  background: #16a34a;
+  transform: translateY(-2px);
+}
+
+/* Slide panel */
+#request-panel {
+  position: fixed;
+  top: 0;
+  right: -350px;
+  width: 320px;
+  height: 100%;
+  background: #ffffff;
+  padding: 25px;
+  transition: right 0.35s ease;
+  box-shadow: -8px 0 20px rgba(0,0,0,0.25);
+  border-left: 4px solid #1e3a8a;
+  z-index: 1000;
+}
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+#overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 900;
+}
+.book-card {
+  background: white;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeUp 0.5s ease forwards;
+}
+
+.book-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
